@@ -34,7 +34,8 @@ static float clamp(float value, float min, float max) {
     }
 }
 
-Servo::Servo(PinName pin) : _pwm(pin) {
+Servo::Servo(PinName pin, int period_ms) : _pwm(pin) {
+    _period_ms = period_ms;
     calibrate();
     write(0.5);
 }
@@ -51,6 +52,7 @@ void Servo::position(float degrees) {
 }
 
 void Servo::calibrate(float range, float degrees) {
+  _pwm.period_ms(_period_ms);
     _range = range;
     _degrees = degrees;
 }

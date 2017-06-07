@@ -90,6 +90,7 @@ public:
 
 protected:
     PwmOut _pwm;
+    int _period_ms;
     float _range;
     float _degrees;
     float _p;
