@@ -56,7 +56,7 @@ public:
      *
      * @param pin PwmOut pin to connect to
      */
-    Servo(PinName pin);
+    Servo(PinName pin, int period_ms);
 
     /** Set the servo position, normalised to it's full range
      *
