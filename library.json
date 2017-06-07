@@ -1,0 +1,25 @@
+{
+  "name": "MbedPwmServo",
+  "keywords": "mbed, nucleo, servo",
+  "description": "MBED library for servos with hardware PWM",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/WPIRoboticsEngineering/MbedPwmServo.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Kevin Harrington",
+      "email": "harrington@wpi.edu",
+      "maintainer": true
+    },
+    {
+      "name": "Nathan Rosenberg",
+      "email": "narosenberg@wpi.edu"
+    }
+  ],
+  "version": "0.0.1",
+  "frameworks": "mbed",
+  "platforms": "ststm32"
+}
