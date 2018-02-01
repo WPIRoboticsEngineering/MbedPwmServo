@@ -83,6 +83,16 @@ public:
      */
     void calibrate(float range = 0.0005, float degrees = 45.0);
 
+    /** Turn on the servo
+
+    */
+    void enable();
+
+    /** Turn off the servo
+
+    */
+    void disable();
+
     /**  Shorthand for the write and read functions */
     Servo& operator= (float percent);
     Servo& operator= (Servo& rhs);
@@ -94,6 +104,7 @@ protected:
     float _range;
     float _degrees;
     float _p;
+    int enabled;
 };
 
 #endif
