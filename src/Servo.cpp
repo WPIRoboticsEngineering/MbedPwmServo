@@ -36,14 +36,22 @@ static float clamp(float value, float min, float max) {
 
 Servo::Servo(PinName pin, int period_ms) : _pwm(pin) {
     _period_ms = period_ms;
+    enabled = 1;
     calibrate();
     write(0.5);
 }
 
 void Servo::write(float percent) {
-    float offset = _range * 2.0 * (percent - 0.5);
-    _pwm.pulsewidth(0.0015 + clamp(offset, -_range, _range));
-    _p = clamp(percent, 0.0, 1.0);
+    if(enabled)
+    {
+        float offset = _range * 2.0 * (percent - 0.5);
+        _pwm.pulsewidth(0.0015 + clamp(offset, -_range, _range));
+        _p = clamp(percent, 0.0, 1.0);
+    }
+    else
+    {
+        _pwm.pulsewidth(0);
+    }
 }
 
 void Servo::position(float degrees) {
@@ -59,6 +67,14 @@ void Servo::calibrate(float range, float degrees) {
 
 float Servo::read() {
     return _p;
+}
+
+void Servo::enable(){
+    enabled = 1;
+}
+
+void Servo::disable(){
+    enabled = 0;
 }
 
 Servo& Servo::operator= (float percent) {
